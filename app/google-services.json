@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "299919763021",
+    "firebase_url": "https://sastanetflix-51f3f.firebaseio.com",
+    "project_id": "sastanetflix-51f3f",
+    "storage_bucket": "sastanetflix-51f3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299919763021:android:f681ddfe675e18ef0a5e04",
+        "android_client_info": {
+          "package_name": "com.vedworx.sastanetflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299919763021-j9o0ah49fd9r7gr5tgqmho70f19bg9nn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vedworx.sastanetflix",
+            "certificate_hash": "df47a4c1775b0d116067af6f07d48cbfb7250e9e"
+          }
+        },
+        {
+          "client_id": "299919763021-2o8g7au7g5plauvegckoqjckuepe31qi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD76G0-zNftNr6USLblW19iBOTSzCQ5qPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299919763021-2o8g7au7g5plauvegckoqjckuepe31qi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

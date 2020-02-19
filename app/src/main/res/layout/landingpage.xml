@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="The D&amp;D Vortex"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/robotobold"
+        android:textColor="#000"
+
+        android:layout_height="wrap_content"></TextView>
+
+<ImageView
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:onClick="switchactivity"
+    android:layout_gravity="center"
+    android:src="@drawable/bigbang"></ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Episode 16"
+        android:layout_margin="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:text="Big Bang Theory Season 12"
+        android:layout_height="wrap_content"></TextView>
+</LinearLayout>
