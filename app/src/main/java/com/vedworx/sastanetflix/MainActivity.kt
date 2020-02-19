@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mediaController: MediaController
     private var playBackPosition = 0
     private val dashUrl =
-        "http://dl9.rmdlsv.com/tv-series/Peaky-Blinders/S01/1080P/Peaky.Blinders.S01E01.1080p.BluRay.2CH.x264.mkv"
+        "http://dl9.rmdlsv.com/tv-series/Peaky-Blinders/S01/480P/Peaky.Blinders.S01E01.480p.BluRay.x264.mkv"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

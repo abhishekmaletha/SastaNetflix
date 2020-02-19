@@ -4,18 +4,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.vedworx.sastanetflix.*
 import kotlinx.android.synthetic.main.series.*
+import kotlinx.android.synthetic.main.seriesdetailed.*
 
 
-class landingPage : Fragment(), seriesclicklistener {
+class seriesdetailed() : Fragment(), seriesclicklistener {
 
     private lateinit var viewmodelsave: seriesviewmodel
-    private var adapter = recyclerViewHomeScreen()
+    private var adapter = seriesdetailedadapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class landingPage : Fragment(), seriesclicklistener {
         viewmodelsave = ViewModelProviders.of(this).get(seriesviewmodel::class.java)
 
         return inflater.inflate(
-            R.layout.series,
+            R.layout.seriesdetailed,
             container,
             false
         )
@@ -34,15 +34,20 @@ class landingPage : Fragment(), seriesclicklistener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewmodelsave.getRealitimeUpdates()
+        val bundle = arguments
+        val stringg = bundle?.getString("idd")
+        val namee = bundle?.getString("name")
+        viewmodelsave.getSeriesDetailedRealitimeUpdates(stringg.toString())
+        seriesname.text = namee
 
 
-        seriesrecyclerview.adapter = adapter
+
+
+        seriesdetailedrecycler.adapter = adapter
         adapter.listener = this
         viewmodelsave._listings.observe(viewLifecycleOwner, Observer {
             adapter.addListing(it)
         })
-
 
     }
 
@@ -50,13 +55,12 @@ class landingPage : Fragment(), seriesclicklistener {
         fun newInstance(): landingPage = landingPage()
     }
 
-
     override fun onseriesitemclicked(view: View, seriesmodel: series) {
         when (view.id) {
             R.id.seriesimageview -> {
                 val bundle = Bundle()
-                val fragmentswitch = seriesdetailed()
-                bundle.putString("idd", seriesmodel.id)
+                val fragmentswitch = episodesdetailed()
+                bundle.putString("idd",seriesmodel.id)
                 bundle.putString("name", seriesmodel.name)
                 fragmentswitch.arguments = bundle
                 val manager = fragmentManager

@@ -1,5 +1,7 @@
 package com.vedworx.sastanetflix
 
-interface seriesclicklistener {
+import android.view.View
 
+interface seriesclicklistener {
+    fun onseriesitemclicked(view: View, seriesmodel: series)
 }
