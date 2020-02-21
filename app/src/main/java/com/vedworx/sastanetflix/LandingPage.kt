@@ -41,7 +41,7 @@ class landingPage : Fragment(), seriesclicklistener {
         adapter.listener = this
         viewmodelsave._listings.observe(viewLifecycleOwner, Observer {
             adapter.addListing(it)
-
+            loaderofLanding.visibility = View.INVISIBLE
         })
 
 

@@ -44,6 +44,7 @@ class episodesdetailed() : Fragment(), episodelistener {
         episodesdetailed.adapter = adapter
         viewmodelsave._episodeslisiting.observe(viewLifecycleOwner, Observer {
             adapter.addListing(it)
+            loader.visibility = View.INVISIBLE
         })
 
     }

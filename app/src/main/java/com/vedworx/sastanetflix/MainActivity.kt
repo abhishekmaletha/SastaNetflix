@@ -5,12 +5,26 @@ import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.MediaController
+import com.google.android.exoplayer2.ExoPlayerFactory
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
+import com.google.android.exoplayer2.source.ExtractorMediaSource
+import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView
+import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var simpleExoPlayer: SimpleExoPlayer
+
+
     private lateinit var mediaController: MediaController
     private var playBackPosition = 0
 
@@ -22,24 +36,23 @@ class MainActivity : AppCompatActivity() {
 
         val dashUrl = extras?.getString("link")
 
-
-
-        mediaController = MediaController(this)
-        simpleVideoView.setOnPreparedListener {
-            mediaController.setAnchorView(videoContainer)
-            simpleVideoView.setMediaController(mediaController)
-            simpleVideoView.seekTo(playBackPosition)
-            simpleVideoView.start()
+        try {
+            var bandWidthMeter = DefaultBandwidthMeter()
+            var trackSelector = DefaultTrackSelector(AdaptiveTrackSelection.Factory(bandWidthMeter))
+            simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector)
+            var uri=Uri.parse(dashUrl)
+            var defaultHttpDataSourceFactory= DefaultHttpDataSourceFactory("exoplayer_video")
+            var extractorsFactory=DefaultExtractorsFactory()
+            var mediaSource=ExtractorMediaSource(uri,defaultHttpDataSourceFactory,extractorsFactory,null,null)
+            simpleExoPlayerView.player=simpleExoPlayer
+            simpleExoPlayer.prepare(mediaSource)
+            simpleExoPlayer.playWhenReady=true
+            progressBar.visibility=View.INVISIBLE
         }
-        simpleVideoView.setOnInfoListener { player, what, extras ->
-            if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START)
-                progressBar.visibility = View.INVISIBLE
-            true
+        catch (e:Exception){
+            Log.e("Exception",e.toString())
         }
 
-        val uri = Uri.parse(dashUrl)
-        simpleVideoView.setVideoURI(uri)
-        progressBar.visibility = View.VISIBLE
 
     }
 
@@ -51,13 +64,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        simpleVideoView.pause()
-        playBackPosition = simpleVideoView.currentPosition
+
     }
 
     override fun onStop() {
         super.onStop()
-        simpleVideoView.stopPlayback()
+
     }
 
 

@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
+<com.airbnb.lottie.LottieAnimationView
+    android:layout_width="match_parent"
+    app:lottie_rawRes="@raw/loader"
+    app:lottie_loop="true"
+    android:id="@+id/loaderofLanding"
+    app:lottie_autoPlay="true"
+    android:layout_height="match_parent"></com.airbnb.lottie.LottieAnimationView>
 
 
     <androidx.recyclerview.widget.RecyclerView
