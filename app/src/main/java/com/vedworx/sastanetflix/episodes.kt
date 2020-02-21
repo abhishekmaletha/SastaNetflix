@@ -7,5 +7,5 @@ data class episodes(
     var id: String? = null,
     var image: String? = null,
     var name: String? = null,
-    var url: String? = null
+    var link: String? = null
 )

@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.episodesdetailed.*
 import kotlinx.android.synthetic.main.seriesdetailed.*
 
 
-class episodesdetailed() : Fragment(), seriesclicklistener {
+class episodesdetailed() : Fragment(), episodelistener {
 
     private lateinit var viewmodelsave: seriesviewmodel
-    private var adapter = seriesdetailedadapter()
+    private var adapter = episodedetailedadapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,17 +35,14 @@ class episodesdetailed() : Fragment(), seriesclicklistener {
         super.onActivityCreated(savedInstanceState)
 
         val bundle = arguments
-        val stringg = bundle?.getString("idd")
+        val stringg1 = bundle?.getString("idd1")
+        val stringg2 = bundle?.getString("idd2")
         val namee = bundle?.getString("name")
-        viewmodelsave.getSEpisodesDetailedRealitimeUpdates(stringg.toString())
+        viewmodelsave.getSEpisodesDetailedRealitimeUpdates(stringg1.toString(), stringg2.toString())
         seriesseason.text = namee
-
-
-
-
-        episodesdetailed.adapter = adapter
         adapter.listener = this
-        viewmodelsave._listings.observe(viewLifecycleOwner, Observer {
+        episodesdetailed.adapter = adapter
+        viewmodelsave._episodeslisiting.observe(viewLifecycleOwner, Observer {
             adapter.addListing(it)
         })
 
@@ -55,10 +52,11 @@ class episodesdetailed() : Fragment(), seriesclicklistener {
         fun newInstance(): landingPage = landingPage()
     }
 
-    override fun onseriesitemclicked(view: View, seriesmodel: series) {
+    override fun onepisodeitemclicked(view: View, episodesmodel: episodes) {
         when (view.id) {
             R.id.seriesimageview -> {
                 val intent = Intent(context, MainActivity::class.java)
+                intent.putExtra("link", episodesmodel.link.toString())
                 startActivity(intent)
             }
         }

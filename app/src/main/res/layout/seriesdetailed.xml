@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/gradientseriesdetailed"
+    android:layout_height="match_parent">
 
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/coverphoto"
-        android:src="@drawable/peaky"
-        android:scaleType="fitXY"
-        android:elevation="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"></ImageView>
-
-    <TextView
-        android:id="@+id/seriesname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/brandon"
-        android:gravity="center"
-        android:padding="20dp"
-        android:text="Peaky Blinders"
-        android:textColor="#000"
-        android:textSize="30dp"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/seriesdetailedrecycler"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loaderseriesdetailed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="3"></androidx.recyclerview.widget.RecyclerView>
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loader"></com.airbnb.lottie.LottieAnimationView>
 
-</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/coverphoto"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:elevation="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/peaky"></ImageView>
+
+        <TextView
+            android:id="@+id/seriesname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/brandon"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Peaky Blinders"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"></TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/seriesdetailedrecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"></androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+</FrameLayout>

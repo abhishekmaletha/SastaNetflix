@@ -31,7 +31,6 @@ class episodedetailedadapter : RecyclerView.Adapter<episodedetailedadapter.homes
 
         holder.view.seriesimageview.setOnClickListener {
             listener?.onepisodeitemclicked(it, adapterListing[position])
-            holder.view.seriesnamee.text = ""
         }
 
     }

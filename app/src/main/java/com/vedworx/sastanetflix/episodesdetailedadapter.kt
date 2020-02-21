@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.seriesdetailed.view.*
 import kotlinx.android.synthetic.main.seriesview.view.*
 
 
-class recyclerViewHomeScreen : RecyclerView.Adapter<recyclerViewHomeScreen.homescreenadapter>() {
-    private val adapterListing = mutableListOf<series>()
-    var listener: seriesclicklistener? = null
+class episodesdetailedadapter : RecyclerView.Adapter<episodesdetailedadapter.homescreenadapter>() {
+    private val adapterListing = mutableListOf<episodes>()
+    var listener: episodelistener? = null
 
     class homescreenadapter(val view: View) : RecyclerView.ViewHolder(view)
 
@@ -26,13 +27,15 @@ class recyclerViewHomeScreen : RecyclerView.Adapter<recyclerViewHomeScreen.homes
     override fun onBindViewHolder(holder: homescreenadapter, position: Int) {
         Glide.with(holder.view).load(adapterListing[position].image).centerCrop()
             .into(holder.view.seriesimageview)
+
         holder.view.seriesimageview.setOnClickListener {
-            listener?.onseriesitemclicked(it, adapterListing[position])
+            listener?.onepisodeitemclicked(it, adapterListing[position])
+
         }
 
     }
 
-    fun addListing(lisiting: series) {
+    fun addListing(lisiting: episodes) {
         adapterListing.add(lisiting)
         notifyDataSetChanged()
     }

@@ -29,18 +29,19 @@ class landingPage : Fragment(), seriesclicklistener {
             container,
             false
         )
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+
         viewmodelsave.getRealitimeUpdates()
-
-
         seriesrecyclerview.adapter = adapter
         adapter.listener = this
         viewmodelsave._listings.observe(viewLifecycleOwner, Observer {
             adapter.addListing(it)
+
         })
 
 

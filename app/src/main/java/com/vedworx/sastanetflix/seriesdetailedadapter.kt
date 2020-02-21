@@ -30,7 +30,7 @@ class seriesdetailedadapter : RecyclerView.Adapter<seriesdetailedadapter.homescr
 
         holder.view.seriesimageview.setOnClickListener {
             listener?.onseriesitemclicked(it, adapterListing[position])
-            holder.view.seriesnamee.text = ""
+
         }
 
     }
