@@ -3,10 +3,7 @@ package com.vedworx.sastanetflix
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import java.lang.Exception
 
 class seriesviewmodel : ViewModel() {
@@ -17,12 +14,16 @@ class seriesviewmodel : ViewModel() {
     private val result = MutableLiveData<Exception?>()
     private val listings = MutableLiveData<series>()
     private val episodeslisiting = MutableLiveData<episodes>()
+    private val _serieslisiting = MutableLiveData<List<series>>()
 
     val _listings: LiveData<series>
         get() = listings
 
     val _episodeslisiting: LiveData<episodes>
         get() = episodeslisiting
+
+    val serieslisiting: LiveData<List<series>>
+        get() = _serieslisiting
 
 
     val _result: LiveData<Exception?>
@@ -41,15 +42,12 @@ class seriesviewmodel : ViewModel() {
     }
 
 
-
-
-    fun getSEpisodesDetailedRealitimeUpdates(id1: String,id2:String) {
+    fun getSEpisodesDetailedRealitimeUpdates(id1: String, id2: String) {
         var seriesDetailedReference =
             FirebaseDatabase.getInstance().getReference("series").child(id1).child("content")
                 .child(id2).child("content")
         seriesDetailedReference.addChildEventListener(EpisodeEventListener)
     }
-
 
 
     private val childEventListener = object : ChildEventListener {
@@ -100,8 +98,59 @@ class seriesviewmodel : ViewModel() {
         override fun onChildRemoved(p0: DataSnapshot) {
             TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
-
     }
+
+
+    fun fetchSeries() {
+        FirebaseDatabase.getInstance().getReference("series")
+            .addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    if (p0.exists()) {
+                        val serlisting = mutableListOf<series>()
+                        for (datasnapShot in p0.children) {
+                            val listing = datasnapShot.getValue(series::class.java)
+                            listing?.id = datasnapShot.key
+                            listing?.let { serlisting.add(it) }
+                        }
+                        _serieslisiting.value = serlisting
+                    }
+                }
+
+            })
+    }
+
+    fun fetchSeriesResults(seriesName: String) {
+        FirebaseDatabase.getInstance().getReference("series")
+            .addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    if (p0.exists()) {
+                        val serlisting = mutableListOf<series>()
+                        for (datasnapShot in p0.children) {
+                        if (datasnapShot.child("name").getValue().toString().contains(seriesName)) {
+                                val listing = datasnapShot.getValue(series::class.java)
+                                listing?.id = datasnapShot.key
+                                listing?.let { serlisting.add(it) }
+                            }
+                      }
+                        _serieslisiting.value = serlisting
+
+                    }
+                }
+
+            })
+    }
+
+
     override fun onCleared() {
         super.onCleared()
         seriesReference.removeEventListener(childEventListener)

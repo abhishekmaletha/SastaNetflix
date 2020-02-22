@@ -8,8 +8,9 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.seriesview.view.*
 
 
-class recyclerViewHomeScreen : RecyclerView.Adapter<recyclerViewHomeScreen.homescreenadapter>() {
-    private val adapterListing = mutableListOf<series>()
+class recyclerviewseriesscreen :
+    RecyclerView.Adapter<recyclerviewseriesscreen.homescreenadapter>() {
+    private var adapterListing = mutableListOf<series>()
     var listener: seriesclicklistener? = null
 
     class homescreenadapter(val view: View) : RecyclerView.ViewHolder(view)
@@ -32,8 +33,8 @@ class recyclerViewHomeScreen : RecyclerView.Adapter<recyclerViewHomeScreen.homes
 
     }
 
-    fun addListing(lisiting: series) {
-        adapterListing.add(lisiting)
+    fun setSeries(lisiting: List<series>) {
+        this.adapterListing = lisiting as MutableList<series>
         notifyDataSetChanged()
     }
 }

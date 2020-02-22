@@ -1,19 +1,23 @@
 package com.vedworx.sastanetflix
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.fragmentholder.*
+import landingPage
+import searchfragment
 
-class fragmentholder:AppCompatActivity(){
+class fragmentholder : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragmentholder)
 
-        val artistsFragment = landingPage.newInstance()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, artistsFragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+        toolbar.title="Sasta Netflix"
+        val adapter = fragmentholderadapter(supportFragmentManager)
+        adapter.addFragment(landingPage(), "Sitcom")
+        adapter.addFragment(searchfragment(), "Documentary")
+        adapter.addFragment(animepage(), "Anime")
+        viewPager.adapter = adapter
+        tabs.setupWithViewPager(viewPager)
     }
 }
 
