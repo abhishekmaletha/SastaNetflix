@@ -1,9 +1,11 @@
-package com.vedworx.sastanetflix
+package com.vedworx.sastanetflix.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.vedworx.sastanetflix.R
+import com.vedworx.sastanetflix.authenticationActivity
 
 
 class splashpage : AppCompatActivity() {
@@ -14,7 +16,8 @@ class splashpage : AppCompatActivity() {
     internal val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
 
-            val intent = Intent(applicationContext,authenticationActivity::class.java)
+            val intent = Intent(applicationContext,
+                authenticationActivity::class.java)
             startActivity(intent)
             finish()
         }

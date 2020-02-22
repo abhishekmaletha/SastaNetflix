@@ -1,4 +1,4 @@
-package com.vedworx.sastanetflix
+package com.vedworx.sastanetflix.activities
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +13,7 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import com.vedworx.sastanetflix.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 

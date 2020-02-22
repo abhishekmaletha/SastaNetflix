@@ -7,12 +7,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.vedworx.sastanetflix.*
+import com.vedworx.sastanetflix.activities.MainActivity
+import com.vedworx.sastanetflix.adapters.episodedetailedadapter
+import com.vedworx.sastanetflix.interfaces.episodelistener
+import com.vedworx.sastanetflix.viewmodel.episodes
+import com.vedworx.sastanetflix.viewmodel.seriesviewmodel
 import kotlinx.android.synthetic.main.episodesdetailed.*
 
-class episodesdetailed() : Fragment(), episodelistener {
+class episodesdetailed() : Fragment(),
+    episodelistener {
 
     private lateinit var viewmodelsave: seriesviewmodel
-    private var adapter = episodedetailedadapter()
+    private var adapter =
+        episodedetailedadapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

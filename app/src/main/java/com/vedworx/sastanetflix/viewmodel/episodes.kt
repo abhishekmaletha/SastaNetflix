@@ -1,4 +1,4 @@
-package com.vedworx.sastanetflix
+package com.vedworx.sastanetflix.viewmodel
 
 import com.google.firebase.database.Exclude
 

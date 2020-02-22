@@ -1,6 +1,4 @@
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +8,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.vedworx.sastanetflix.*
+import com.vedworx.sastanetflix.adapters.searchadapter
+import com.vedworx.sastanetflix.interfaces.seriesclicklistener
+import com.vedworx.sastanetflix.models.series
+import com.vedworx.sastanetflix.viewmodel.seriesviewmodel
 import kotlinx.android.synthetic.main.searchlayout.*
 import kotlinx.android.synthetic.main.searchlayout.loaderofLanding
 import kotlinx.android.synthetic.main.searchlayout.view.*
 
 
 
-class searchfragment : Fragment(), seriesclicklistener {
+class searchfragment : Fragment(),
+    seriesclicklistener {
 
     private lateinit var viewmodelsave: seriesviewmodel
     private var adapter = searchadapter()

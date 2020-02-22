@@ -1,9 +1,10 @@
-package com.vedworx.sastanetflix
+package com.vedworx.sastanetflix.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.*
+import com.vedworx.sastanetflix.models.series
 import java.lang.Exception
 
 class seriesviewmodel : ViewModel() {

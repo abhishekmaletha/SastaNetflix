@@ -1,4 +1,4 @@
-package com.vedworx.sastanetflix
+package com.vedworx.sastanetflix.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

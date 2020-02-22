@@ -7,8 +7,7 @@ import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
-import com.vedworx.sastanetflix.R
-import com.vedworx.sastanetflix.fragmentholder
+import com.vedworx.sastanetflix.activities.fragmentholder
 import kotlinx.android.synthetic.main.registerlayout.*
 import login
 import toast

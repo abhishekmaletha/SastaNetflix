@@ -2,7 +2,7 @@
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
-import com.vedworx.sastanetflix.fragmentholder
+import com.vedworx.sastanetflix.activities.fragmentholder
 
 fun Context.toast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

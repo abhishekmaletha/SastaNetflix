@@ -6,13 +6,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.vedworx.sastanetflix.*
+import com.vedworx.sastanetflix.adapters.recyclerviewseriesscreen
+import com.vedworx.sastanetflix.interfaces.seriesclicklistener
+import com.vedworx.sastanetflix.models.series
+import com.vedworx.sastanetflix.viewmodel.seriesviewmodel
 import kotlinx.android.synthetic.main.series.*
 
 
-class landingPage : Fragment(), seriesclicklistener {
+class landingPage : Fragment(),
+    seriesclicklistener {
 
     private lateinit var viewmodelsave: seriesviewmodel
-    private var adapter = recyclerviewseriesscreen()
+    private var adapter =
+        recyclerviewseriesscreen()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
