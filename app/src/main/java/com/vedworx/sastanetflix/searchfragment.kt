@@ -11,7 +11,9 @@ import androidx.lifecycle.ViewModelProviders
 
 import com.vedworx.sastanetflix.*
 import kotlinx.android.synthetic.main.searchlayout.*
+import kotlinx.android.synthetic.main.searchlayout.loaderofLanding
 import kotlinx.android.synthetic.main.searchlayout.view.*
+
 
 
 class searchfragment : Fragment(), seriesclicklistener {
@@ -49,6 +51,7 @@ class searchfragment : Fragment(), seriesclicklistener {
         search_recyclerview.adapter = adapter
         viewmodelsave.serieslisiting.observe(viewLifecycleOwner, Observer {
             adapter.setSeries(it)
+            loaderofLanding.visibility = View.INVISIBLE
         })
 
     }

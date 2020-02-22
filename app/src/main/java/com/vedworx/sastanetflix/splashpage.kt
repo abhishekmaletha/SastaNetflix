@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 
+
 class splashpage : AppCompatActivity() {
     private var mDelayHandler: Handler? = null
 
@@ -13,7 +14,7 @@ class splashpage : AppCompatActivity() {
     internal val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
 
-            val intent = Intent(applicationContext, fragmentholder::class.java)
+            val intent = Intent(applicationContext,authenticationActivity::class.java)
             startActivity(intent)
             finish()
         }

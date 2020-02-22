@@ -16,15 +16,21 @@
 
         </activity>
         <activity android:name=".splashpage">
-
-        </activity>
-        <activity android:name=".fragmentholder">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".fragmentholder">
+
+        </activity>
+        <activity android:name="LoginFragment"></activity>
+        <activity android:name="SignupFragment"></activity>
+        <activity android:name="authenticationActivity">
+
+        </activity>
+
     </application>
 
 </manifest>
