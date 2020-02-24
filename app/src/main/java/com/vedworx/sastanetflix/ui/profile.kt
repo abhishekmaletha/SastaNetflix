@@ -14,9 +14,12 @@ import kotlinx.android.synthetic.main.profile.*
 class profile : AppCompatActivity() {
     private lateinit var db: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
+    private  var profileName:String="ads"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile)
+
+
 
         db = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
@@ -28,11 +31,14 @@ class profile : AppCompatActivity() {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    nameofUser.text = p0.children.toString()
+                    profileName = p0.children.toString()
                 }
 
             })
 
+
+
+        nameofUser.text=profileName
         logoutButton.setOnClickListener {
             auth.signOut()
             authentication()

@@ -1,3 +1,5 @@
+package com.vedworx.sastanetflix.activities
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -62,13 +64,10 @@ class searchfragment : Fragment(),
     override fun onseriesitemclicked(view: View, seriesmodel: series) {
         when (view.id) {
             R.id.seriesimageview -> {
-                val bundle = Bundle()
-                val fragmentswitch = seriesdetailed()
-                bundle.putString("idd", seriesmodel.id)
-                bundle.putString("name", seriesmodel.name)
-                fragmentswitch.arguments = bundle
-                val manager = fragmentManager
-                manager?.beginTransaction()?.replace(R.id.container, fragmentswitch)?.commit()
+                val intent = Intent(context, seriesdetailed::class.java)
+                intent.putExtra("idd", seriesmodel.id)
+                intent.putExtra("name", seriesmodel.name)
+                startActivity(intent)
             }
         }
     }

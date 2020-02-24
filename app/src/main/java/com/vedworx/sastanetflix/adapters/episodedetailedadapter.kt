@@ -9,6 +9,8 @@ import com.bumptech.glide.Glide
 import com.vedworx.sastanetflix.R
 import com.vedworx.sastanetflix.viewmodel.episodes
 import com.vedworx.sastanetflix.interfaces.episodelistener
+import kotlinx.android.synthetic.main.episodelayout.view.*
+import kotlinx.android.synthetic.main.episodesdetailed.view.*
 import kotlinx.android.synthetic.main.seriesview.view.*
 
 
@@ -33,10 +35,9 @@ class episodedetailedadapter : RecyclerView.Adapter<episodedetailedadapter.homes
     }
 
     override fun onBindViewHolder(holder: homescreenadapter, position: Int) {
-        Glide.with(holder.view).load(adapterListing[position].image).centerCrop()
-            .into(holder.view.seriesimageview)
+        holder.view.episodename.text = "Episode" + position.toString()
 
-        holder.view.seriesimageview.setOnClickListener {
+        holder.view.episodename.setOnClickListener {
             listener?.onepisodeitemclicked(it, adapterListing[position])
         }
 

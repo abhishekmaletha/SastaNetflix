@@ -16,18 +16,20 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:titleTextColor="#e50914"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#FFFFFF"
-         />
+            app:titleTextColor="#e50914" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabGravity="center"
-            app:tabMode="fixed"
+            android:padding="5dp"
+            app:tabIndicator="@drawable/selector_tab_indicator_dot"
+            app:tabMode="auto"
+            app:tabTextAppearance="@style/tab_text"
             app:tabTextColor="#e50914" />
     </com.google.android.material.appbar.AppBarLayout>
 

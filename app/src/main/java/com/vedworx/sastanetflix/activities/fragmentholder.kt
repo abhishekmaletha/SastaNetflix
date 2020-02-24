@@ -12,9 +12,6 @@ import com.vedworx.sastanetflix.fragments.documentarypage
 import com.vedworx.sastanetflix.ui.profile
 import kotlinx.android.synthetic.main.fragmentholder.*
 import landingPage
-import profileEnter
-import searchfragment
-import toast
 
 
 class fragmentholder : AppCompatActivity() {
