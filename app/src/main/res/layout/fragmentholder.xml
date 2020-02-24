@@ -17,7 +17,6 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             app:titleTextColor="#e50914"
-            app:menu="@menu/navigation"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#FFFFFF"
@@ -27,7 +26,7 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
+            app:tabGravity="center"
             app:tabMode="fixed"
             app:tabTextColor="#e50914" />
     </com.google.android.material.appbar.AppBarLayout>

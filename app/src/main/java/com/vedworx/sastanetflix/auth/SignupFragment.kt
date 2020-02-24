@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 import com.vedworx.sastanetflix.activities.fragmentholder
+import com.vedworx.sastanetflix.ui.informationenter
 import kotlinx.android.synthetic.main.registerlayout.*
 import login
 import toast
@@ -59,7 +60,7 @@ class SignupFragment : AppCompatActivity() {
     private fun registerUser(email: String, password: String) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                val intent = Intent(this, fragmentholder::class.java).apply {
+                val intent = Intent(this, informationenter::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
                 startActivity(intent)
