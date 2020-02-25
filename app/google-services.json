@@ -42,6 +42,43 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299919763021:android:1cb9ff736ebe8d660a5e04",
+        "android_client_info": {
+          "package_name": "com.vedworx.sastantflx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299919763021-pputvt8o1oj9g3u9fa5r3edn8jch8tb3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vedworx.sastantflx",
+            "certificate_hash": "df47a4c1775b0d116067af6f07d48cbfb7250e9e"
+          }
+        },
+        {
+          "client_id": "299919763021-2o8g7au7g5plauvegckoqjckuepe31qi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD76G0-zNftNr6USLblW19iBOTSzCQ5qPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299919763021-2o8g7au7g5plauvegckoqjckuepe31qi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
