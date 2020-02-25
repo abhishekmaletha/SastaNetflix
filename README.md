@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ExoPlayer2 Sample Project
 
 #### This repo updated for r2.10.4 version.
@@ -98,3 +99,19 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+=======
+# SastaNetflix
+A Video Streaming Platform
+# Technologies Used
+<pre>
+Navigation Graph
+ViewModel
+MVVM
+Firebase
+LiveData
+Lottie
+CircleImageView
+Timber
+ExoPlayer
+</pre>
+>>>>>>> bbca2d291ec6ce3a9f6484227ee5d4961d93f3fe
