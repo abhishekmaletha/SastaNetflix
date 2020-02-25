@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientseriesdetailed"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.airbnb.lottie.LottieAnimationView
@@ -16,14 +17,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/gradientseriesdetailed">
-
-    </ImageView>
-
     <TextView
         android:id="@+id/seriesseason"
         android:layout_width="wrap_content"
@@ -31,8 +24,9 @@
         android:layout_gravity="center"
         android:text="Season 1"
         android:textColor="#000"
-        android:fontFamily="@font/robotobold"
-        android:textSize="25dp"></TextView>
+        android:layout_margin="10dp"
+        android:fontFamily="monospace"
+        android:textSize="30dp"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

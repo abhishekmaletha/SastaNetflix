@@ -35,7 +35,7 @@ class episodedetailedadapter : RecyclerView.Adapter<episodedetailedadapter.homes
     }
 
     override fun onBindViewHolder(holder: homescreenadapter, position: Int) {
-        holder.view.episodename.text = "Episode" + position.toString()
+        holder.view.episodename.text = "Episode" + (position+1).toString()
 
         holder.view.episodename.setOnClickListener {
             listener?.onepisodeitemclicked(it, adapterListing[position])

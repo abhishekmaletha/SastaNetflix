@@ -30,7 +30,7 @@ import com.vedworx.sastanetflix.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 import toast
-/**/
+
 
 
 class exoplayer : Activity() {
@@ -38,12 +38,11 @@ class exoplayer : Activity() {
 
     private lateinit var simpleExoPlayer: SimpleExoPlayer
     private lateinit var mediaDataSourceFactory: DataSource.Factory
-
+    private var shouldAutoPlay: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
-
+        initializePlayer()
     }
 
     private fun initializePlayer() {
@@ -52,10 +51,8 @@ class exoplayer : Activity() {
         simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this)
         mediaDataSourceFactory = DefaultDataSourceFactory(this, Util.getUserAgent(this, "mediaPlayerSample"))
 
-        val mediaSource = DashMediaSource.Factory(mediaDataSourceFactory).createMediaSource(Uri.parse(STREAM_URL))
+        val mediaSource = ProgressiveMediaSource.Factory(mediaDataSourceFactory).createMediaSource(Uri.parse(STREAM_URL))
 
-
-        
         simpleExoPlayer.prepare(mediaSource, false, false)
         simpleExoPlayer.playWhenReady = true
 
@@ -122,6 +119,7 @@ class exoplayer : Activity() {
 
     private fun releasePlayer() {
         simpleExoPlayer.release()
+        shouldAutoPlay = simpleExoPlayer.playWhenReady
     }
 
     public override fun onStart() {

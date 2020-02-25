@@ -12,9 +12,9 @@ import com.vedworx.sastanetflix.R
 import kotlinx.android.synthetic.main.profile.*
 
 class profile : AppCompatActivity() {
+
     private lateinit var db: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
-    private  var profileName:String="ads"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile)
@@ -23,7 +23,7 @@ class profile : AppCompatActivity() {
 
         db = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
-        val ref = db.getReference("users").child(auth.uid.toString())
+        db.getReference("users").child(auth.uid.toString())
             .addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -31,14 +31,14 @@ class profile : AppCompatActivity() {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    profileName = p0.children.toString()
+                var  profileName = p0.child("name").value.toString()
+                 nameofUser.text = profileName
                 }
 
             })
 
 
 
-        nameofUser.text=profileName
         logoutButton.setOnClickListener {
             auth.signOut()
             authentication()
