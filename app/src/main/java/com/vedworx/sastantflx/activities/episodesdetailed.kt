@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.vedworx.sastantflx.R
-import com.vedworx.sastantflx.VideoPlayerActivity2
+import com.vedworx.sastantflx.exoplayer
 import com.vedworx.sastantflx.adapters.episodedetailedadapter
 import com.vedworx.sastantflx.interfaces.episodelistener
 import com.vedworx.sastantflx.viewmodel.episodes
@@ -46,7 +46,7 @@ class episodesdetailed : AppCompatActivity(), episodelistener {
     override fun onepisodeitemclicked(view: View, episodesmodel: episodes) {
         when (view.id) {
             R.id.episodename -> {
-                val intent = Intent(this, VideoPlayerActivity2::class.java)
+                val intent = Intent(this, exoplayer::class.java)
                 intent.putExtra("link", episodesmodel.link.toString())
                 startActivity(intent)
             }

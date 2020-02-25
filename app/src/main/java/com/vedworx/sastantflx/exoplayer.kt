@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.widget.Toast
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.Player.*
@@ -21,7 +22,7 @@ import kotlinx.android.synthetic.main.activity_video_player.playerView
 import kotlinx.android.synthetic.main.activity_video_player.progressBar
 import kotlinx.android.synthetic.main.activity_video_player2.*
 
-class VideoPlayerActivity2 : Activity() {
+class exoplayer : Activity() {
     private val TAG = "TEST12345"
 
     private lateinit var simpleExoPlayer: SimpleExoPlayer
@@ -30,6 +31,9 @@ class VideoPlayerActivity2 : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player2)
+
+
+
     }
 
     private fun initializePlayer() {
@@ -49,16 +53,7 @@ class VideoPlayerActivity2 : Activity() {
         playerView.requestFocus()
 
         /** Default repeat mode is REPEAT_MODE_OFF */
-        btnChangeRepeatMode.setOnClickListener {
-            if(simpleExoPlayer.repeatMode == REPEAT_MODE_OFF)
-                simpleExoPlayer.repeatMode = REPEAT_MODE_ONE
-            else if(simpleExoPlayer.repeatMode == REPEAT_MODE_ONE){
-                simpleExoPlayer.repeatMode = REPEAT_MODE_ALL
-            }
-            else{
-                simpleExoPlayer.repeatMode = REPEAT_MODE_OFF
-            }
-        }
+
 
         simpleExoPlayer.addListener( object : Player.EventListener{
             override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {
