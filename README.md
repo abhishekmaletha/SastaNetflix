@@ -1,5 +1,5 @@
 # SastaNetflix
-A Vide Streaming Platform
+A Video Streaming Platform
 # Technologies Used
 <pre>
 Navigation Graph
