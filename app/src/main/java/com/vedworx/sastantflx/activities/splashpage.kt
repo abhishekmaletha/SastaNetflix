@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.vedworx.sastantflx.R
-import com.vedworx.sastantflx.auth.authenticationActivity
+import com.vedworx.sastantflx.auth.LoginFragment
 
 
 class splashpage : AppCompatActivity() {
@@ -17,7 +17,7 @@ class splashpage : AppCompatActivity() {
         if (!isFinishing) {
 
             val intent = Intent(applicationContext,
-                authenticationActivity::class.java)
+                LoginFragment::class.java)
             startActivity(intent)
             finish()
         }
@@ -26,11 +26,7 @@ class splashpage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splashpage)
 
-
-
-
-
-            //Initialize the Handler
+      //Initialize the Handler
             mDelayHandler = Handler()
 
             //Navigate with delay

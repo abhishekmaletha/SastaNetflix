@@ -8,7 +8,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.vedworx.sastantflx.R
-import com.vedworx.sastantflx.utils.authentication
+import com.vedworx.sastantflx.utils.loginFragment
 
 import kotlinx.android.synthetic.main.profile.*
 
@@ -42,7 +42,7 @@ class profile : AppCompatActivity() {
 
         logoutButton.setOnClickListener {
             auth.signOut()
-            authentication()
+            loginFragment()
         }
     }
 }

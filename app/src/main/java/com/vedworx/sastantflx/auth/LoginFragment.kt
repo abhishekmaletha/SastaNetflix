@@ -13,12 +13,12 @@ import com.vedworx.sastantflx.utils.toast
 import kotlinx.android.synthetic.main.loginlayout.*
 
 
-
 class LoginFragment : AppCompatActivity() {
     private lateinit var mAuthLogin: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.loginlayout)
+
         mAuthLogin = FirebaseAuth.getInstance()
 
 

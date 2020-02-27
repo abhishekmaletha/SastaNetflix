@@ -34,11 +34,10 @@
         <activity android:name=".activities.splashpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.authenticationActivity" />
+
         <activity android:name=".auth.LoginFragment" />
         <activity android:name=".auth.SignupFragment" />
         <activity android:name=".ui.informationenter" />

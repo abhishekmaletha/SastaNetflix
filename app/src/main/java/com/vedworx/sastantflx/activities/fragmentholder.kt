@@ -27,9 +27,7 @@ class fragmentholder : AppCompatActivity() {
             supportFragmentManager
         )
         adapter.addFragment(landingPage(), "Series")
-        adapter.addFragment(documentarypage(), "Documentary")
         adapter.addFragment(searchfragment(), "Search")
-        adapter.addFragment(animepage(), "Anime")
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
     }
