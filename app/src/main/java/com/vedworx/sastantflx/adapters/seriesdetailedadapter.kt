@@ -5,6 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.vedworx.sastantflx.R
 import com.vedworx.sastantflx.interfaces.seriesclicklistener
 import com.vedworx.sastantflx.models.series
@@ -32,8 +35,12 @@ class seriesdetailedadapter : RecyclerView.Adapter<seriesdetailedadapter.homescr
     }
 
     override fun onBindViewHolder(holder: homescreenadapter, position: Int) {
-        Glide.with(holder.view).load(adapterListing[position].image).centerCrop()
-            .into(holder.view.seriesimageview)
+
+        val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+        Glide.with(holder.view).load(adapterListing[position].image)
+                .placeholder(R.drawable.gradientseriesdetailed).transition(DrawableTransitionOptions.withCrossFade())
+                .centerCrop().apply(requestOptions)
+                .into(holder.view.seriesimageview)
 
         holder.view.seriesimageview.setOnClickListener {
             listener?.onseriesitemclicked(it, adapterListing[position])

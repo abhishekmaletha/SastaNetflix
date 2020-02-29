@@ -5,10 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import tcking.github.com.giraffeplayer2.GiraffePlayer
-import tcking.github.com.giraffeplayer2.VideoInfo
 import tcking.github.com.giraffeplayer2.VideoView
-import java.security.AccessController.getContext
 
 
 class exoplayer : AppCompatActivity() {
@@ -18,10 +15,16 @@ class exoplayer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player2)
 
-        val extras = intent.extras
-        var STREAM_URL=extras?.getString("link").toString()
+        val url=intent.getStringExtra("link")
 
-        GiraffePlayer.play(applicationContext,  VideoInfo(STREAM_URL).setFullScreenOnly(true).setShowTopBar(false).setBgColor(Color.BLACK))
+
+        val videoView: VideoView = findViewById<View>(R.id.video_view) as VideoView
+        videoView.setVideoPath(url).getPlayer().start()
+        videoView.videoInfo.apply {
+            bgColor=Color.BLACK
+            setFullScreenAnimation(true)
+            isFullScreenOnly=true
+        }
     }
 
 
