@@ -42,7 +42,9 @@
         <activity android:name=".auth.SignupFragment" />
         <activity android:name=".ui.informationenter" />
         <activity android:name=".ui.profile" />
+        <activity android:name=".testing.retrofitclass">
 
+        </activity>
 
     </application>
 
