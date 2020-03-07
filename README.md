@@ -11,5 +11,7 @@ Lottie
 CircleImageView
 Timber
 ExoPlayer
+RetroFit
+Shimeering Animation
 </pre>
 
