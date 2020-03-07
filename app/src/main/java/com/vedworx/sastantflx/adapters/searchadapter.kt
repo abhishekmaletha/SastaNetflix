@@ -34,8 +34,8 @@ class searchadapter :
 
     override fun onBindViewHolder(holder: homescreenadapter, position: Int) {
         Glide.with(holder.view).load(adapterListing[position].image).centerCrop()
-            .into(holder.view.seriesimageview)
-        holder.view.seriesimageview.setOnClickListener {
+            .into(holder.view.seasonimageview)
+        holder.view.seasonimageview.setOnClickListener {
             listener?.onseriesitemclicked(it, adapterListing[position])
         }
 

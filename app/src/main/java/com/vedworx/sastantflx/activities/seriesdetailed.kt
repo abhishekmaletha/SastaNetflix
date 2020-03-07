@@ -16,9 +16,12 @@ import com.vedworx.sastantflx.R
 
 import com.vedworx.sastantflx.adapters.seriesdetailedadapter
 import com.vedworx.sastantflx.interfaces.ApiService
+import com.vedworx.sastantflx.interfaces.seasonsclicklistener
 import com.vedworx.sastantflx.interfaces.seriesclicklistener
 import com.vedworx.sastantflx.models.Sitcom
+import com.vedworx.sastantflx.models.seasons
 import com.vedworx.sastantflx.models.series
+import com.vedworx.sastantflx.utils.toast
 import com.vedworx.sastantflx.viewmodel.seriesviewmodel
 import kotlinx.android.synthetic.main.seriesdetailed.*
 import retrofit2.Call
@@ -29,11 +32,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class seriesdetailed : AppCompatActivity(),
-        seriesclicklistener {
+        seasonsclicklistener {
     private var db: FirebaseDatabase? = null
     private lateinit var viewmodelsave: seriesviewmodel
-    private var adapter =
-            seriesdetailedadapter()
+    private var seasonslist = listOf<seasons>()
+    private var adapter = seriesdetailedadapter(seasonslist)
     private var linkOfEpisodeFragment: String? = null
 
 
@@ -44,7 +47,9 @@ class seriesdetailed : AppCompatActivity(),
 
         val stringg = intent.getStringExtra("idd")
         val namee = intent.getStringExtra("name")
-        viewmodelsave.getSeriesDetailedRealitimeUpdates(stringg.toString())
+
+//        viewmodelsave.getSeriesDetailedRealitimeUpdates(stringg.toString())
+
         seriesname.text = namee
 
         linkOfEpisodeFragment = stringg
@@ -54,9 +59,8 @@ class seriesdetailed : AppCompatActivity(),
 
         val api = retrofit.create(ApiService::class.java)
 
-        api.fetchSeries().enqueue(object : Callback<Sitcom> {
+        api.fetchSeries(stringg).enqueue(object : Callback<Sitcom> {
             override fun onResponse(call: Call<Sitcom>, response: Response<Sitcom>) {
-                Log.d("sd", "onresponse")
                 val resp = response.body()
 
                 if (resp != null) {
@@ -64,43 +68,45 @@ class seriesdetailed : AppCompatActivity(),
                     seriesrating.rating = (response.body()!!.vote_average / 2).toFloat()
                     Glide.with(this@seriesdetailed).load("https://image.tmdb.org/t/p/w342" + resp.poster_path).fitCenter().into(seriesposterpath)
                     Glide.with(this@seriesdetailed).load("https://image.tmdb.org/t/p/w780" + resp.backdrop_path).into(seriesbackdrop)
+                    seasonslist = resp.seasons
+                    insertdata(seasonslist)
                 }
 
 
             }
+
             override fun onFailure(call: Call<Sitcom>, t: Throwable) {
-                Log.d("sd", t.cause.toString())
             }
 
 
-
         })
 
-        seriesdetailedrecycler.adapter = adapter
 
-
-
-
-
-        adapter.listener = this
-
-        viewmodelsave._listings.observe(this, Observer
-        {
-            adapter.addListing(it)
-            loaderseriesdetailed.visibility = View.INVISIBLE
-        })
+//        viewmodelsave._listings.observe(this, Observer
+//        {
+//            adapter.addListing(it)
+//
+//        })
 
 
     }
 
-    override fun onseriesitemclicked(view: View, seriesmodel: series) {
+    fun insertdata(seasonslist: List<seasons>) {
+        adapter = seriesdetailedadapter(seasonslist)
+        seriesdetailedrecycler.adapter = adapter
+        loaderseriesdetailed.visibility = View.INVISIBLE
+        adapter.listener = this
+    }
+
+    override fun onseasonitemclicked(view: View, seasonsmodel: seasons) {
         when (view.id) {
-            R.id.seriesimageview -> {
+            R.id.seasonimageview -> {
                 val intent = Intent(this, episodesdetailed::class.java)
                 intent.putExtra("idd1", linkOfEpisodeFragment)
-                intent.putExtra("idd2", seriesmodel.id)
-                intent.putExtra("name", seriesmodel.name)
+                intent.putExtra("idd2", seasonsmodel.id)
+                intent.putExtra("name", seasonsmodel.name)
                 startActivity(intent)
+                toast("asdasda")
             }
         }
     }

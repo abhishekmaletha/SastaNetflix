@@ -11,7 +11,6 @@ import com.vedworx.sastantflx.R
 import com.vedworx.sastantflx.interfaces.seriesclicklistener
 import com.vedworx.sastantflx.models.series
 import kotlinx.android.synthetic.main.seriesview.view.*
-import kotlin.coroutines.coroutineContext
 
 
 class recyclerviewseriesscreen :
@@ -41,8 +40,8 @@ class recyclerviewseriesscreen :
         Glide.with(holder.view).load(adapterListing[position].image)
                 .placeholder(R.drawable.gradientseriesdetailed)
                 .centerCrop().apply(requestOptions)
-                .into(holder.view.seriesimageview)
-        holder.view.seriesimageview.setOnClickListener {
+                .into(holder.view.seasonimageview)
+        holder.view.seasonimageview.setOnClickListener {
             listener?.onseriesitemclicked(it, adapterListing[position])
         }
 

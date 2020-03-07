@@ -58,7 +58,7 @@ class landingPage : Fragment(),
 
     override fun onseriesitemclicked(view: View, seriesmodel: series) {
         when (view.id) {
-            R.id.seriesimageview -> {
+            R.id.seasonimageview -> {
                 val intent = Intent(this.context, seriesdetailed::class.java)
                 intent.putExtra("idd", seriesmodel.id)
                 intent.putExtra("name", seriesmodel.name)
