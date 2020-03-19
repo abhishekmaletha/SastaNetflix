@@ -1,5 +1,5 @@
 # SastaNetflix
-A Video Streaming Platform
+A Video Streaming Platform. Akin to Neflix/Prime I made an app that helps you stream content or the internet. Let's you login stream stuff.
 # Technologies Used
 <pre>
 Navigation Graph
@@ -12,6 +12,6 @@ CircleImageView
 Timber
 ExoPlayer
 RetroFit
-Shimeering Animation
+Shimmering Animation
 </pre>
 
