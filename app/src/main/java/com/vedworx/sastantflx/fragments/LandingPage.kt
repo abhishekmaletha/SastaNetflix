@@ -49,7 +49,8 @@ class landingPage : Fragment(),
         adapter.listener = this
         viewmodelsave.serieslisiting.observe(viewLifecycleOwner, Observer {
             adapter.setSeries(it)
-            loaderofLanding.visibility = View.INVISIBLE
+            loaderofLanding.stopShimmer()
+            loaderofLanding.visibility=View.GONE
         })
 
 

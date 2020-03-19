@@ -70,6 +70,8 @@ class seriesdetailed : AppCompatActivity(),
                     Glide.with(this@seriesdetailed).load("https://image.tmdb.org/t/p/w780" + resp.backdrop_path).into(seriesbackdrop)
                     seasonslist = resp.seasons
                     insertdata(seasonslist)
+//                    loaderseriesdetailed.stopShimmer()
+//                    loaderseriesdetailed.visibility = View.INVISIBLE
                 }
 
 
@@ -81,11 +83,10 @@ class seriesdetailed : AppCompatActivity(),
 
         })
 
-
+//
 //        viewmodelsave._listings.observe(this, Observer
 //        {
 //            adapter.addListing(it)
-//
 //        })
 
 
@@ -94,19 +95,21 @@ class seriesdetailed : AppCompatActivity(),
     fun insertdata(seasonslist: List<seasons>) {
         adapter = seriesdetailedadapter(seasonslist)
         seriesdetailedrecycler.adapter = adapter
-        loaderseriesdetailed.visibility = View.INVISIBLE
         adapter.listener = this
     }
 
     override fun onseasonitemclicked(view: View, seasonsmodel: seasons) {
         when (view.id) {
             R.id.seasonimageview -> {
-                val intent = Intent(this, episodesdetailed::class.java)
-                intent.putExtra("idd1", linkOfEpisodeFragment)
-                intent.putExtra("idd2", seasonsmodel.id)
-                intent.putExtra("name", seasonsmodel.name)
-                startActivity(intent)
-                toast("asdasda")
+                if (seasonsmodel.idd == null) {
+                    toast(seasonsmodel.name.toString() + " is currently not present")
+                } else {
+                    val intent = Intent(this, episodesdetailed::class.java)
+                    intent.putExtra("idd1", linkOfEpisodeFragment)
+                    intent.putExtra("idd2", seasonsmodel.idd)
+                    intent.putExtra("name", seasonsmodel.name)
+                    startActivity(intent)
+                }
             }
         }
     }

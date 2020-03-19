@@ -15,6 +15,7 @@ import com.vedworx.sastantflx.models.seasons
 import com.vedworx.sastantflx.models.series
 import kotlinx.android.synthetic.main.seasonsview.view.*
 import kotlinx.android.synthetic.main.seriesview.view.seasonimageview
+import kotlin.math.acos
 
 
 class seriesdetailedadapter(val seasonsList: List<seasons>) : RecyclerView.Adapter<seriesdetailedadapter.homescreenadapter>() {
@@ -46,6 +47,9 @@ class seriesdetailedadapter(val seasonsList: List<seasons>) : RecyclerView.Adapt
                 .apply(requestOptions)
                 .into(holder.view.seasonimageview)
 
+        for (i in 1..position) {
+            seasonsList[i].idd = "s0" + i.toString()
+        }
         val seasons = seasonsList[position]
 
 
@@ -53,12 +57,13 @@ class seriesdetailedadapter(val seasonsList: List<seasons>) : RecyclerView.Adapt
         holder.view.seasonairingyear.text = seasons.air_date
         holder.view.seasonepisodescount.text = seasons.episode_count.toString() + " Episodes"
         holder.view.seasonsummary.text = seasons.overview
-
         holder.view.seasonimageview.setOnClickListener {
             listener?.onseasonitemclicked(it, seasonsList[position])
         }
 
+
     }
+
 
 //    fun addListing(lisiting: series) {
 //        adapterListing.add(lisiting)

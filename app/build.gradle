@@ -58,6 +58,7 @@ dependencies {
     api 'com.github.tcking:giraffeplayer2:0.1.25-full'
     implementation 'com.squareup.retrofit2:retrofit:2.7.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 
 
