@@ -16,6 +16,6 @@ Shimmering Animation
 </pre>
 # Screenshots
 ![Alt text](/screenshot/mainview.png?raw=true "Optional Title")
-![Alt text](/screenshot/seriedetailed.png?raw=true "Optional Title")
+![Alt text](/screenshot/seriesdetailed.png?raw=true "Optional Title")
 ![Alt text](/screenshot/seasonspreview.png?raw=true "Optional Title")
 ![Alt text](/screenshot/mainplayer.png?raw=true "Optional Title")
