@@ -1,6 +1,6 @@
-![](https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5.fit_scale.size_1028x578.v_1582751026.png)
-# SastaNetflix
+![](media/netflix.png)
 
+# SastaNetflix
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Github Followers](https://img.shields.io/github/followers/vedantmamgain?label=Follow&style=social)
@@ -9,8 +9,7 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/vedantmamgain/SastaNetflix?style=social)
 ![Twitter Follow](https://img.shields.io/twitter/follow/MamgainVedant?label=Follow&style=social)
 
-**Sasta Netlflix** is video Streaming Platform. Akin to Neflix/Prime I made an app that helps you stream content or the internet. Let's you login,stream stuff. For info about the TV series the app relies on TheMovieDB and fetches data from their api.Rest of the data is hosted on Firebase.. Dedicated to all Android Developers with ❤️. 
-
+**Sasta Netlflix** is video Streaming Platform. Akin to Neflix/Prime I made an app that helps you stream content or the internet. Let's you login,stream stuff. For info about the TV series the app relies on TheMovieDB and fetches data from their api.Rest of the data is hosted on Firebase.. Dedicated to all Android Developers with ❤️.
 
 ## Built With 🛠
 
@@ -18,7 +17,7 @@
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - For asynchronous and more..
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
   - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Data objects that notify views when the underlying database changes.
-  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Stores UI-related data that isn't destroyed on UI changes. 
+  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Stores UI-related data that isn't destroyed on UI changes.
   - [ViewBinding](https://developer.android.com/topic/libraries/view-binding) - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
 - [GiraffePlayer2](https://github.com/tcking/GiraffePlayer2) - Out of the box android video player（support lazy load, ListView/RecyclerView and hight performance）
 - [Retrofit](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java.
@@ -28,31 +27,32 @@
 - [Timber](https://github.com/JakeWharton/timber) - This is a logger with a small, extensible API which provides utility on top of Android's normal Log clas
 - [Shimmer](https://github.com/facebook/Shimmer) - An easy way to add a simple, shimmering effect to any view in an iOS app.
 
-
-
 ## Architecture
-This app uses [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
+
+This app uses [**_MVVM (Model View View-Model)_**](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
 
 ![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
 # Screenshots
-![](media/mainview.png )
-![](media/seriesdetailed.png )
+
+![](media/mainview.png)
+![](media/seriesdetailed.png)
 ![](media/seasonspreview.png)
 ![](media/mainplayer.png)
 
-
-
 ## Contribute
+
 If you want to contribute to this library, you're always welcome!
-See [Contributing Guidelines](CONTRIBUTING.md). 
+See [Contributing Guidelines](CONTRIBUTING.md).
 
 ## Contact
+
 If you need any help, you can connect with me.
 
 Visit:- [Vedant Mamgain](https://www.linkedin.com/in/vedant-mamgain/)
 
 ## License
+
 ```
 MIT License
 
