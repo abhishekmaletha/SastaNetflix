@@ -36,10 +36,10 @@ This app uses [***MVVM (Model View View-Model)***](https://developer.android.com
 ![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
 # Screenshots
-![](screenshot/mainview.png )
-![](screenshot/seriesdetailed.png )
-![](screenshot/seasonspreview.png)
-![](screenshot/mainplayer.png)
+![](media/mainview.png )
+![](media/seriesdetailed.png )
+![](media/seasonspreview.png)
+![](media/mainplayer.png)
 
 
 
