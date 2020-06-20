@@ -1,7 +1,5 @@
 ![](media/netflix.png)
-
 # SastaNetflix
-
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Github Followers](https://img.shields.io/github/followers/vedantmamgain?label=Follow&style=social)
 ![GitHub stars](https://img.shields.io/github/stars/vedantmamgain/SastaNetflix?style=social)
@@ -10,7 +8,6 @@
 ![Twitter Follow](https://img.shields.io/twitter/follow/MamgainVedant?label=Follow&style=social)
 
 **Sasta Netlflix** is video Streaming Platform. Akin to Neflix/Prime I made an app that helps you stream content or the internet. Let's you login,stream stuff. For info about the TV series the app relies on TheMovieDB and fetches data from their api.Rest of the data is hosted on Firebase.. Dedicated to all Android Developers with ❤️.
-
 ## Built With 🛠
 
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
